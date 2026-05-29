@@ -1,10 +1,20 @@
 import sys
 import argparse
+
+# Pipeline
+# 
 from boolbox.pipeline import sbox_to_poly
+
+# Formatters
+# 
 from boolbox.formatters.text import TextFormatter
 from boolbox.formatters.latex import LaTeXFormatter
 from boolbox.formatters.json import JSONFormatter
 from boolbox.formatters.unicode import UnicodeFormatter
+from boolbox.formatters.image import ImageFormatter
+
+# IO Loader
+# 
 from boolbox.io.loaders import load_sbox
 
 
@@ -28,9 +38,16 @@ def register_parser(subparsers):
     parser.add_argument(
         "-f",
         "--format",
-        choices=["text", "latex", "json", "unicode"],
+        choices=["text", "latex", "json", "unicode", "image"],
         default="text",
         help="Output format for the generated polynomials.",
+    )
+
+    parser.add_argument(
+        "-o",
+        "--output",
+        default="anf_equations.png",
+        help="Output file path (used only when format is 'image').",
     )
 
 
@@ -72,6 +89,8 @@ def run(args: argparse.Namespace) -> int:
         formatter = JSONFormatter()
     elif args.format == "unicode":
         formatter = UnicodeFormatter()
+    elif args.format == "image":
+        formatter = ImageFormatter(output_path=args.output)
 
     # Print result
     #
