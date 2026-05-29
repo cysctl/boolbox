@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "boolbox"
-version = "0.1.1"
-description = "A lightweight cryptographic Boolean function analysis tool."
+version = "0.2.0"
+description = "A lightweight cryptographic Boolean function analysis and quantum circuit synthesis tool."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
@@ -15,7 +15,9 @@ dependencies = []
 
 [project.optional-dependencies]
 image = ["matplotlib"]
-all = ["matplotlib"]
+quantum = ["qiskit>=2.4.0"]
+quantum-vis = ["qiskit>=2.4.0", "matplotlib", "pylatexenc"]
+all = ["qiskit>=2.4.0", "matplotlib", "pylatexenc"]
 dev = ["pytest"]
 
 [project.scripts]
