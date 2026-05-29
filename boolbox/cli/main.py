@@ -2,7 +2,11 @@
 # - Update the 'description' value
 
 import argparse
+
+# Sub-commands
+#
 from boolbox.cli.commands import anf
+from boolbox.cli.commands import tts
 
 
 def cli_main() -> int:
@@ -16,9 +20,10 @@ def cli_main() -> int:
     #
     subparsers = parser.add_subparsers(dest="command", required=True, title="command")
 
-    # Introduce the 'anf' sub-command to the boolbox
+    # Introduce the sub-commands to the boolbox
     #
     anf.register_parser(subparsers)
+    tts.register_parser(subparsers)
 
     # Parse arguments
     #
@@ -28,6 +33,8 @@ def cli_main() -> int:
     #
     if args.command == "anf":
         return anf.run(args)
+    elif args.command == "tts":
+        return tts.run(args)
 
     # 0 = Success
     #
