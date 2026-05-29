@@ -1,7 +1,8 @@
 import re
+from boolbox.formatters.base import Formatter
 from boolbox.formatters.text import TextFormatter
 
-class UnicodeFormatter:
+class UnicodeFormatter(Formatter):
     def __init__(self):
         self.text_formatter = TextFormatter()
         
