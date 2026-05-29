@@ -7,6 +7,7 @@ import argparse
 #
 from boolbox.cli.commands import anf
 from boolbox.cli.commands import tts
+from boolbox.cli.commands import coeffs
 
 
 def cli_main() -> int:
@@ -24,6 +25,7 @@ def cli_main() -> int:
     #
     anf.register_parser(subparsers)
     tts.register_parser(subparsers)
+    coeffs.register_parser(subparsers)
 
     # Parse arguments
     #
@@ -35,6 +37,8 @@ def cli_main() -> int:
         return anf.run(args)
     elif args.command == "tts":
         return tts.run(args)
+    elif args.command == "coeffs":
+        return coeffs.run(args)
 
     # 0 = Success
     #
