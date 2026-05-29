@@ -50,6 +50,8 @@ def register_parser(subparsers):
         help="Output file path (used only when format is 'image').",
     )
 
+    parser.set_defaults(func=run)
+
 
 def run(args: argparse.Namespace) -> int:
     """
