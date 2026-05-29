@@ -31,7 +31,7 @@ class ImageFormatter:
             # Replace XOR with LaTeX \oplus
             #
             latex_poly = poly.replace("XOR", r"\oplus")
-            equations.append(f"$S_{{{i}}} = {latex_poly}$")
+            equations.append(f"$x_{{{i}}} \\rightarrow S_{{{i}}} = {latex_poly}$")
 
         # Join the equations with double newlines for spacing
         #
