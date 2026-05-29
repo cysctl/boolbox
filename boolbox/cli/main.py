@@ -1,6 +1,3 @@
-# TODO
-# - Update the 'description' value
-
 import argparse
 
 # Sub-commands
@@ -12,7 +9,7 @@ from boolbox.cli.commands import coeffs
 
 def cli_main() -> int:
     parser = argparse.ArgumentParser(
-        prog="boolbox", description="<I will change it later>"
+        prog="boolbox", description="A lightweight cryptographic Boolean function analysis tool."
     )
 
     # Parse sub-commands
