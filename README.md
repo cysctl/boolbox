@@ -103,6 +103,10 @@ Planned improvements and features for future releases:
 
 - **Comprehensive Examples:** Populate the `examples/` directory with practical use cases, sample S-Boxes (e.g., DES or PRESENT components).
 
+- **Universal Output Routing:** Extend the `-o/--output` flag functionality to support all formatters (Text, JSON, LaTeX, etc.), allowing users to write any generated output directly to a file instead of `stdout`.
+
+- **Formatter Architecture Refactoring:** Introduce dedicated formatter families for Truth Tables (`TruthTableFormatter`) and Möbius Coefficients (`CoeffsFormatter`). This architectural upgrade will eliminate inline `if/elif` conditional logic, enforcing a cleaner and fully polymorphic design across all subcommands.
+
 ## AI Usage Policy
 
 This project was developed with assistance from Artificial Intelligence. AI tools were utilized for the following tasks:
