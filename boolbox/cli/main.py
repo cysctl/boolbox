@@ -5,7 +5,7 @@ import argparse
 from boolbox.cli.commands import anf
 from boolbox.cli.commands import tts
 from boolbox.cli.commands import coeffs
-
+from boolbox.cli.commands import qcircuit
 
 def cli_main() -> int:
     parser = argparse.ArgumentParser(
@@ -23,7 +23,8 @@ def cli_main() -> int:
     anf.register_parser(subparsers)
     tts.register_parser(subparsers)
     coeffs.register_parser(subparsers)
-
+    qcircuit.register_parser(subparsers)
+    
     # Parse arguments
     #
     args = parser.parse_args()
