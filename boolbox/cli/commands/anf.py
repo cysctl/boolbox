@@ -4,6 +4,7 @@ from boolbox.pipeline import sbox_to_poly
 from boolbox.formatters.text import TextFormatter
 from boolbox.formatters.latex import LaTeXFormatter
 from boolbox.formatters.json import JSONFormatter
+from boolbox.formatters.unicode import UnicodeFormatter
 from boolbox.io.loaders import load_sbox
 
 
@@ -27,7 +28,7 @@ def register_parser(subparsers):
     parser.add_argument(
         "-f",
         "--format",
-        choices=["text", "latex", "json"],
+        choices=["text", "latex", "json", "unicode"],
         default="text",
         help="Output format for the generated polynomials.",
     )
@@ -69,6 +70,8 @@ def run(args: argparse.Namespace) -> int:
         formatter = LaTeXFormatter()
     elif args.format == "json":
         formatter = JSONFormatter()
+    elif args.format == "unicode":
+        formatter = UnicodeFormatter()
 
     # Print result
     #
