@@ -1,1 +1,118 @@
-# boolbox
+# Boolbox
+
+A lightweight cryptographic Boolean function analysis tool and library. It helps you analyze cryptographic Substitution Boxes (S-Boxes) by computing their Algebraic Normal Form (ANF) polynomials, truth tables, and Möbius transform coefficients.
+
+
+## Features
+
+* **ANF Equation Generation**: Generate Algebraic Normal Form (ANF) equations for each S-Box bit.
+* **Truth Tables**: Extract individual truth tables for output bits.
+* **Möbius Coefficients**: Compute Fast Möbius Transform (FMT) coefficients.
+* **Flexible Input**: Load S-Boxes from raw strings, local files, or standard input (stdin).
+
+
+## Formatters
+
+The tool supports multiple output formats for ANF equations:
+
+* **Text (`text`)**: Standard text representation of equations.
+* **LaTeX (`latex`)**: Outputs mathematical equations formatted with standard LaTeX symbols
+* **JSON (`json`)**: Structured data format containing equations and metadata, useful for integration with other tools.
+* **Unicode (`unicode`)**: Visually formatted text utilizing subscript numbers and mathematical symbols (e.g., `⊕`).
+* **Image (`image`)**: Renders and saves equations to a PNG image file using `matplotlib`.
+
+
+## Installation
+
+### From Source (Development)
+Clone the repository and install the package with all optional dependencies in editable mode:
+
+```bash
+git clone https://github.com/enes/boolbox.git
+cd boolbox
+pip install -e .[all]
+
+# for tests
+pip install -e .[all,dev]
+```
+
+You can check it with the following command after installation:
+```bash
+boolbox --help
+```
+### From PyPI (Coming Soon)
+`boolbox` will soon be available on PyPI. Once published, you will be able to install it directly using pip:
+
+```bash
+pip install boolbox
+```
+
+## Usage
+
+Once installed, the `boolbox` command is available globally.
+
+### 1. Generate ANF Equations (`anf`)
+Convert S-Box outputs to algebraic equations.
+
+```bash
+# Standard text format (default)
+boolbox anf "[0xC, 0x5, 0x6, 0xB, 0x9, 0x0, 0xA, 0xD, 0x3, 0xE, 0xF, 0x8, 0x4, 0x7, 0x1, 0x2]"
+
+# Unicode format
+boolbox anf "[0xC, 0x5, 0x6, 0xB]" --format unicode
+
+# LaTeX format
+boolbox anf "[0xC, 0x5, 0x6, 0xB]" --format latex
+
+# Save equations as a PNG image (requires 'matplotlib')
+boolbox anf "[0xC, 0x5, 0x6, 0xB]" --format image --output equations.png
+```
+
+### 2. Extract Truth Tables (`tts`)
+Extract truth tables for each S-Box output bit.
+
+```bash
+boolbox tts "[0xC, 0x5, 0x6, 0xB]" --format json
+```
+
+### 3. Generate Möbius Coefficients (`coeffs`)
+Compute Fast Möbius Transform coefficients.
+
+```bash
+boolbox coeffs "[0xC, 0x5, 0x6, 0xB]" --format text
+```
+
+### Input Methods
+Inputs can be supplied through different channels:
+```bash
+# Read from a file
+boolbox anf path/to/sbox.txt
+
+# Pipe from standard input (stdin)
+cat sbox.txt | boolbox anf -
+```
+## Roadmap
+
+Planned improvements and features for future releases:
+
+- **Expand LaTeX Formatting Support:** Extend LaTeX output support to the remaining subcommands (tts and coeffs), where it is currently pending implementation.
+
+- **Qiskit Integration:** Implement quantum circuit synthesis from the generated ANF polynomials. Users will be able to draw and automatically visualize a quantum circuit corresponding to the Boolean equations via Qiskit.
+
+    - Note: As boolbox is primarily designed for educational and learning purposes, the synthesized circuits are intended for demonstration and baseline functionality, rather than optimal or simplified physical implementations.
+
+- **Comprehensive Examples:** Populate the `examples/` directory with practical use cases, sample S-Boxes (e.g., DES or PRESENT components).
+
+## AI Usage Policy
+
+This project was developed with assistance from Artificial Intelligence. AI tools were utilized for the following tasks:
+* Optimizing the Fast Möbius Transform algorithm to reduce its complexity.
+* Drafting and formatting this `README.md` file.
+* Minor refactoring and routine code adjustments.
+
+The core design, structural logic, program architecture, and implementation are designed and owned by the author.
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

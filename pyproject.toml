@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boolbox"
+version = "0.1.0"
+description = "A lightweight cryptographic Boolean function analysis tool."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Enes Buzluk" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+image = ["matplotlib"]
+all = ["matplotlib"]
+dev = ["pytest"]
+
+[project.scripts]
+boolbox = "boolbox.cli.main:cli_main"
