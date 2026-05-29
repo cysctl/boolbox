@@ -2,6 +2,7 @@
 # - Update the 'description' value
 
 import argparse
+from boolbox.cli.commands import anf
 
 
 def cli_main() -> int:
@@ -15,9 +16,18 @@ def cli_main() -> int:
     #
     subparsers = parser.add_subparsers(dest="command", required=True, title="command")
 
+    # Introduce the 'anf' sub-command to the boolbox
+    #
+    anf.register_parser(subparsers)
+
     # Parse arguments
     #
     args = parser.parse_args()
+
+    # Dispatch
+    #
+    if args.command == "anf":
+        return anf.run(args)
 
     # 0 = Success
     #
