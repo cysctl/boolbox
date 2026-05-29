@@ -30,6 +30,8 @@ def register_parser(subparsers):
         help="Output format for the truth tables.",
     )
 
+    parser.set_defaults(func=run)
+
 
 def run(args: argparse.Namespace) -> int:
     """

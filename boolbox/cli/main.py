@@ -30,13 +30,11 @@ def cli_main() -> int:
 
     # Dispatch
     #
-    if args.command == "anf":
-        return anf.run(args)
-    elif args.command == "tts":
-        return tts.run(args)
-    elif args.command == "coeffs":
-        return coeffs.run(args)
+    if hasattr(args, "func"):
+        return args.func(args)
 
-    # 0 = Success
+    # Fallback
     #
-    return 0
+    parser.print_help()
+    
+    return 1

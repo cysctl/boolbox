@@ -1,4 +1,5 @@
 import os
+from boolbox.formatters.base import Formatter
 from boolbox.formatters.latex import LaTeXFormatter
 
 try:
@@ -7,7 +8,7 @@ except ImportError:
     plt = None
 
 
-class ImageFormatter:
+class ImageFormatter(Formatter):
     def __init__(self, output_path: str = "anf_equations.png"):
         self.latex_formatter = LaTeXFormatter()
 

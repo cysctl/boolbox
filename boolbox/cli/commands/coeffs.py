@@ -31,6 +31,8 @@ def register_parser(subparsers):
         help="Output format for the coefficients.",
     )
 
+    parser.set_defaults(func=run)
+
 
 def run(args: argparse.Namespace) -> int:
     """
