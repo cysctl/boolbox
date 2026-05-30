@@ -1,0 +1,4 @@
+x_0 -> S_0 = x_0 XOR x_2 XOR x_1 x_2 XOR x_3
+x_1 -> S_1 = x_1 XOR x_0 x_1 x_2 XOR x_3 XOR x_1 x_3 XOR x_0 x_1 x_3 XOR x_2 x_3 XOR x_0 x_2 x_3
+x_2 -> S_2 = 1 XOR x_0 x_1 XOR x_2 XOR x_3 XOR x_0 x_3 XOR x_1 x_3 XOR x_0 x_1 x_3 XOR x_0 x_2 x_3
+x_3 -> S_3 = 1 XOR x_0 XOR x_1 XOR x_1 x_2 XOR x_0 x_1 x_2 XOR x_3 XOR x_0 x_1 x_3 XOR x_0 x_2 x_3
