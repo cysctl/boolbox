@@ -128,7 +128,6 @@ cat sbox.txt | boolbox anf -
 Planned improvements and features for future releases:
 
 - **Expand LaTeX Formatting Support:** Extend LaTeX output support to the remaining subcommands (`tts` and `coeffs`), where it is currently pending implementation.
-- **Comprehensive Examples:** Populate the `examples/` directory with practical use cases and sample S-Boxes (e.g., DES or PRESENT components).
 - **Universal Output Routing:** Extend the `-o/--output` flag functionality to support all formatters (Text, JSON, LaTeX, etc.), allowing users to write any generated output directly to a file instead of `stdout`.
 - **Formatter Architecture Refactoring:** Introduce dedicated formatter families for Truth Tables (`TruthTableFormatter`) and Möbius Coefficients (`CoeffsFormatter`). This architectural upgrade will eliminate inline `if/elif` conditional logic, enforcing a cleaner and fully polymorphic design across all subcommands.
 
